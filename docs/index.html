@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORION - Causal AI</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --accent-color: #3b82f6;
+            --card-bg: #1e293b;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        header {
+            text-align: center;
+            padding: 4rem 0;
+            border-bottom: 1px solid #334155;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            background: -webkit-linear-gradient(#60a5fa, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .tagline {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+        .cta-button:hover {
+            background-color: #2563eb;
+        }
+        section {
+            margin: 3rem 0;
+        }
+        h2 {
+            font-size: 2rem;
+            color: #e2e8f0;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        .card {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid #334155;
+            margin-bottom: 1rem;
+        }
+        blockquote {
+            border-left: 4px solid var(--accent-color);
+            margin: 0;
+            padding-left: 1rem;
+            color: #cbd5e1;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #334155;
+        }
+        th {
+            background-color: #0f172a;
+        }
+        ul {
+            padding-left: 1.5rem;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ORION</h1>
+            <p class="tagline">Causal AI for ICU Intervention Planning<br><i>Moving Beyond Prediction to Counterfactual Decision Support</i></p>
+            <p>ORION is an advanced machine learning framework designed to simulate the true impact of clinical interventions on patient mortality risk. It doesn’t just predict the future—it helps you change it.</p>
+            <br>
+            <a href="https://siddhantchandorkar752-orion-ai.streamlit.app/" class="cta-button" target="_blank">🚀 Launch Interactive Demo</a>
+            &nbsp;
+            <a href="https://github.com/siddhantchandorkar752-ai/ORION" class="cta-button" style="background-color: #334155;" target="_blank">💻 View GitHub Repo</a>
+        </header>
+
+        <section>
+            <h2>The Predictive Gap in Healthcare</h2>
+            <p>Intensive Care Units are heavily monitored environments. Today’s state-of-the-art clinical AI systems are purely <strong>predictive</strong>—they analyze thousands of data points to generate risk scores (e.g., "This patient has an 85% probability of developing sepsis").</p>
+            <p>However, predicting an adverse outcome is insufficient for medical decision-making. When a clinician sees an 85% mortality risk, their immediate question is: <em>"What specific intervention will reduce this risk the most?"</em></p>
+            <div class="card">
+                <p>Predictive models cannot answer this due to <strong>confounding bias</strong>. They learn correlations (e.g., patients on ventilators have high mortality rates) rather than causation (ventilators save lives, but are given to the sickest patients). We need systems that understand cause and effect.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>The Solution: Prescriptive Causal AI</h2>
+            <p>ORION acts as a counterfactual simulator. It bridges deep sequence modeling with double machine learning to answer actionable, "what-if" scenarios:</p>
+            <blockquote>"If we increase this specific patient's Oxygen (FiO2) by 15% right now, how will their mortality risk trajectory change over the next 6 to 24 hours?"</blockquote>
+            <p>ORION isolates the true causal effect of an intervention, calculates the personalized risk reduction, and recommends the mathematically optimal action.</p>
+        </section>
+
+        <section>
+            <h2>System Architecture</h2>
+            <p>ORION employs a robust, dual-engine architecture to separate perception from reasoning:</p>
+            <ul>
+                <li><strong>Temporal Perception (PyTorch):</strong> A Bidirectional LSTM network with attention pooling. It reads temporal sequences to model baseline risk, utilizing Focal Loss to handle severe clinical class imbalances.</li>
+                <li><strong>Causal Reasoning (DoWhy + EconML):</strong> Microsoft's DoWhy library constructs the formal Directed Acyclic Graph (DAG) for backdoor adjustment. An EconML <strong>Causal Forest</strong> then estimates the Conditional Average Treatment Effect (CATE) to personalize the intervention impact.</li>
+                <li><strong>Counterfactual Simulator:</strong> A custom deterministic engine that fuses the LSTM baseline with the Causal Forest delta to project the new risk curve.</li>
+                <li><strong>Interactive UI Layer:</strong> A responsive, dynamic Streamlit frontend built for real-time clinician interaction and visual simulation.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Why This is Different</h2>
+            <table>
+                <tr>
+                    <th>Traditional Clinical ML</th>
+                    <th>ORION Causal AI</th>
+                </tr>
+                <tr>
+                    <td><strong>Goal:</strong> Predict Risk</td>
+                    <td><strong>Goal:</strong> Reduce Risk</td>
+                </tr>
+                <tr>
+                    <td><strong>Question:</strong> "What will happen?"</td>
+                    <td><strong>Question:</strong> "What should we do?"</td>
+                </tr>
+                <tr>
+                    <td><strong>Flaw:</strong> Learns spurious correlations</td>
+                    <td><strong>Strength:</strong> Isolates true causal effects</td>
+                </tr>
+                <tr>
+                    <td><strong>Output:</strong> A single percentage (85%)</td>
+                    <td><strong>Output:</strong> Actionable delta (-12% if given fluids)</td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>Validation & Rigor</h2>
+            <p>Causal claims demand rigorous validation. ORION is evaluated on both predictive accuracy and causal defensibility:</p>
+            <ul>
+                <li><strong>Predictive Power:</strong> The temporal baseline model achieved robust classification metrics, surpassing target thresholds for ROC-AUC (≥ 0.75) and Brier Score (≤ 0.15).</li>
+                <li><strong>Causal Falsification:</strong> The Causal Forest passed strict, automated refutation tests:
+                    <ul>
+                        <li><strong>Placebo Test:</strong> The Average Treatment Effect successfully collapsed to near-zero when tested against dummy interventions.</li>
+                        <li><strong>Random Common Cause:</strong> Estimates remained stable when injected with spurious, unobserved confounders.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Limitations & Disclaimers</h2>
+            <div class="card" style="border-left: 4px solid #ef4444;">
+                <p><em>Transparency is a core requirement of clinical AI.</em> ORION is an academic research prototype, not a deployed medical device.</p>
+                <ul>
+                    <li><strong>Unobserved Confounding:</strong> The Causal Engine assumes "No Unmeasured Confounding." Missing critical variables (e.g., unrecorded medications) will bias the estimates.</li>
+                    <li><strong>Regulatory:</strong> This system has not undergone clinical trials or FDA review. It is explicitly a decision-support model for ML research purposes.</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer style="text-align: center; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #334155; color: #64748b;">
+            <p>Built with PyTorch, EconML, and Streamlit. Designed by Siddhant Chandorkar.</p>
+        </footer>
+    </div>
+</body>
+</html>
