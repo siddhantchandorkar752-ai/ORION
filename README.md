@@ -8,6 +8,10 @@
     <a href="https://microsoft.github.io/dowhy/"><img src="https://img.shields.io/badge/DoWhy-333333?style=for-the-badge&logo=python&logoColor=white" alt="DoWhy" /></a>
     <a href="https://streamlit.io"><img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Streamlit" /></a>
   </p>
+
+  <h3>
+    🌐 <b>Live in the Real World:</b> <a href="https://siddhantchandorkar752-orion-ai.streamlit.app/">👉 Click Here to View the Interactive Dashboard</a>
+  </h3>
 </div>
 
 > ⚠️ **Disclaimer: Research Prototype — Not for Clinical Use.**  
