@@ -1,0 +1,15 @@
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+
+# Data and models shouldn't be pushed to git due to size/privacy
+data/raw/
+data/processed/
+models/temporal/*.pt
+models/temporal/*.json
+models/causal/*.parquet
+models/causal/*.pkl
+models/causal/*.json
+evaluation/results/
